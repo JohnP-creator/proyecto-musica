@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  php:
+    build: .
+    container_name: app_php
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - mysql
+    networks:
+      - red_musica
+
+  mysql:
+    image: mysql:8.0
+    container_name: app_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: gustos_musicales
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: pass123
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - red_musica
+
+volumes:
+  db_data:
+
+networks:
+  red_musica:
+    driver: bridge
