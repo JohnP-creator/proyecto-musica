@@ -102,6 +102,9 @@
         <td><?= htmlspecialchars($r['artista_favorito']) ?></td>
         <td><?= htmlspecialchars($r['cancion_favorita']) ?></td>
         <td><?= $r['fecha'] ?></td>
+        <td>
+            <a href="editar.php?id=<?= $r['id'] ?>" style="color: #6200ea; text-decoration: none; font-weight: bold;">Editar</a>
+        </td>
 	<td><a href="eliminar.php?id=<?= $r['id'] ?>" onclick="return confirm('¿Eliminar registro?')" style="color:red;">Eliminar</a></td>
       </tr>
     <?php endforeach; ?>
