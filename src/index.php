@@ -174,3 +174,29 @@ $registros = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 </body>
 </html>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Género</th>
+      <th>Artista</th>
+      <th>Canción</th>
+      <th>Fecha</th>
+      <th>Acción</th>
+    </tr>
+    <?php foreach ($registros as $r): ?>
+      <tr>
+        <td><?= $r['id'] ?></td>
+        <td><?= htmlspecialchars($r['nombre']) ?></td>
+        <td><?= htmlspecialchars($r['genero_favorito']) ?></td>
+        <td><?= htmlspecialchars($r['artista_favorito']) ?></td>
+        <td><?= htmlspecialchars($r['cancion_favorita']) ?></td>
+        <td><?= $r['fecha'] ?></td>
+        <td>
+            <a href="editar.php?id=<?= $r['id'] ?>" style="color: #6200ea; text-decoration: none; font-weight: bold;">Editar</a>
+        </td>
+	<td><a href="eliminar.php?id=<?= $r['id'] ?>" onclick="return confirm('¿Eliminar registro?')" style="color:red;">Eliminar</a></td>
+      </tr>
+    <?php endforeach; ?>
+  </table>
+</body>
+
+</html>
