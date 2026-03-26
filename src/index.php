@@ -101,6 +101,9 @@
         <td><?= htmlspecialchars($r['artista_favorito']) ?></td>
         <td><?= htmlspecialchars($r['cancion_favorita']) ?></td>
         <td><?= $r['fecha'] ?></td>
+        <td>
+            <a href="editar.php?id=<?= $r['id'] ?>" style="color: #6200ea; text-decoration: none; font-weight: bold;">Editar</a>
+        </td>
       </tr>
     <?php endforeach; ?>
   </table>
